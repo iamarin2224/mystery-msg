@@ -71,6 +71,6 @@ const UserSchema: Schema<User> = new Schema({
 
 //NextJs is edge timmed so data may or may not be present initially so have to check whil eexporting
 // (if present early use this) || (creating for first time same as in express)
-const UserModel = (mongoose.models.user as mongoose.Model<User>) || mongoose.model<User>("User", UserSchema)
+const UserModel = (mongoose.models.User as mongoose.Model<User>) || mongoose.model<User>("User", UserSchema)
 
 export default UserModel
