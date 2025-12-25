@@ -29,7 +29,7 @@ const VerificationEmail = ({ username = "Sample", otp = "123456" }: Verification
               }}
             >
               <Img
-                src={`${baseUrl}/mystryMsg.png`}
+                src="https://res.cloudinary.com/dtifoskmg/image/upload/v1766647632/mystryMsg_j6rsk5.png"
                 alt="Mystery Message Logo"
                 style={{
                   width: "120px",

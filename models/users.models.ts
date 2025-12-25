@@ -35,7 +35,12 @@ const UserSchema: Schema<User> = new Schema({
     username: {
         type: String,
         required: [true, "Username required"],  //can pass error message
-        unique: true
+        unique: true,
+        trim: true,
+        match: [
+            /^[a-zA-Z0-9_.]+$/,
+            "Username can only contain letters, numbers, underscore (_) and dot (.)"
+        ]
     },
     email: {
         type: String,
