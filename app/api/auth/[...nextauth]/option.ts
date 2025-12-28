@@ -46,7 +46,7 @@ export const authOptions: NextAuthOptions  = {
         })
     ],
     callbacks: {
-        async jwt({ token, user }) {
+        async jwt({ token, user, trigger, session }) {
             //this user is a bsic next auth user not aware of its field so have to over ride in inside next-auth.d.ts inside types
 
             //making the token more powerful to reduce database calls
@@ -55,6 +55,10 @@ export const authOptions: NextAuthOptions  = {
                 token.username = user.username
                 token.isVerified = user.isVerified
                 token.isAcceptingMsg = user.isAcceptingMsg
+            }
+
+            if (trigger === "update" && session) {
+                token.isAcceptingMsg = session.user.isAcceptingMsg;
             }
 
             return token
