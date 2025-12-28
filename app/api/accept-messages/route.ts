@@ -65,9 +65,8 @@ export async function POST(req: Request) {
 export async function GET(req: Request) {
     await dbConnect()
 
-    // to get the session from backend, it also requires the auth options
     const session = await getServerSession(authOptions)
-    const user:User = session?.user //optional select as session may not be present
+    const user:User = session?.user
 
     if (!session || !user){
         return Response.json({
