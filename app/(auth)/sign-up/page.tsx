@@ -48,6 +48,11 @@ function page() {
 
     useEffect(() => {
         const checkUsername = async () => {
+            if (!username) {
+                setUsernameMsg('')
+                return
+            }
+
             //only proceed for non empty usernmae
             if (username){
                 setIsCheckingUsername(true) //as we are checking in this process
@@ -57,6 +62,7 @@ function page() {
                     const response = await axios.get(`/api/check-username/?username=${username}`)
                     setUsernameMsg(response.data.message)
                 } catch (error) {
+                    console.error("Error checking username", error)
                     const axiosError = error as AxiosError<ApiResponse>
                     setUsernameMsg(
                         axiosError.response?.data.message ?? 'Error checking username'

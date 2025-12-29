@@ -17,7 +17,7 @@ export async function GET(request:Request) {
         const queryParam = searchParams.get('username')
 
         //check using zod
-        const result = UsernameQuerySchema.safeParse(queryParam)
+        const result = UsernameQuerySchema.safeParse({ username: queryParam })
 
         if (!result.success) {
             return Response.json({
