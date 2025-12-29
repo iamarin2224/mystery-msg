@@ -49,6 +49,9 @@ const VerificationEmail = ({ username = "Sample", otp = "123456" }: Verification
               Thank you for registering. We hope you enjoy your journey with us. Please use the following verification code to complete your registration:
             </Text>
             <Text className="text-center text-2xl tracking-widest text-white leading-relaxed">{otp}</Text>
+            <Text className="text-start text-sm text-white leading-relaxed">
+              Please note that the verification code will expire in 10 minutes.
+            </Text>
             <Text className="text-start text-sm text-white">
               Cheers,
               <br />
