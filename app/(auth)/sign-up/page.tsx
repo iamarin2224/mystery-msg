@@ -85,8 +85,10 @@ function page() {
                 description: "Check your email to verify your account"
             })
 
-            router.replace(`/verify/${username}`)
-            
+            setTimeout(() => {
+                router.replace(`/verify/${data.username}`)
+            }, 2000)
+
         } catch (error) {
             console.error("Error in sign-up of user: ", error)
 
