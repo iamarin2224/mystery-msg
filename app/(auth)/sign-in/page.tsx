@@ -4,27 +4,21 @@ import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { signUpSchema } from "@/schemas/signUpSchema"
+import { signInSchema } from "@/schemas/signInSchema"
 import Link from "next/link"
-import { useDebounceCallback } from 'usehooks-ts'
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
-import axios, {AxiosError} from 'axios'
-import { ApiResponse } from "@/types/ApiResponse"
 
 import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Loader2 } from "lucide-react"
-import { signInSchema } from "@/schemas/signInSchema"
 import { signIn } from "next-auth/react"
 
 function page() {
