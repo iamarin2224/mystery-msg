@@ -12,7 +12,7 @@ import axios, { AxiosError } from 'axios'
 import { Loader2, RefreshCcw } from 'lucide-react'
 import { User } from 'next-auth'
 import { useSession } from 'next-auth/react'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import z from 'zod'
@@ -27,14 +27,8 @@ function page() {
     setMessages(messages.filter((message) => message._id.toString() !== messageId ))
   }
 
-  const {data: session} = useSession()
+  const {data: session, status} = useSession()
   const user: User = session?.user
-
-  if (!session || !user){
-    return (
-      <div></div>
-    )
-  }
 
   const form = useForm<z.infer<typeof acceptingMsgSchema>>({
       resolver: zodResolver(acceptingMsgSchema),
@@ -118,10 +112,23 @@ function page() {
 
   }, [session, setValue, fetchAcceptMessage, fetchMessages])
 
+  //have to use hooks before return
+  const urlRef = useRef<HTMLInputElement | null>(null)
+
+  //keep the guard at last
+  if (status === "loading") {
+    return <div>Loading...</div>
+  }
+
+  if (!session || !session.user) {
+    return <div></div>
+  }
+
   const baseUrl = `${window.location.protocol}//${window.location.host}`
   const profileUrl = `${baseUrl}/u/${user.username}`
 
   const copyToClipboard = () => {
+    urlRef.current?.select()
     window.navigator.clipboard.writeText(profileUrl)
     toast("URL has been copied to clipboard")
   }
@@ -136,6 +143,7 @@ function page() {
           <input
             type="text"
             value={profileUrl}
+            ref={urlRef}
             disabled
             className="input input-bordered w-full p-2 mr-2"
           />

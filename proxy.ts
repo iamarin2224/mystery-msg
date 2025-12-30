@@ -10,7 +10,7 @@ export async function proxy(request: NextRequest) {
 
     //redirect to dashboard if user is verified and trying to sign-in or sign-up
     if (token && (
-        url.pathname.startsWith('/') ||
+        url.pathname == '/' ||
         url.pathname.startsWith('/sign-in') ||
         url.pathname.startsWith('/sign-up') ||
         url.pathname.startsWith('/verify')

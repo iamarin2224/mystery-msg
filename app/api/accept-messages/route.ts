@@ -3,7 +3,6 @@ import { authOptions } from "../auth/[...nextauth]/option";
 import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/models/users.models";
 import { User } from "next-auth";   //for the type safety of user
-import { useSession } from "next-auth/react";
 
 export async function POST(req: Request) {
     await dbConnect()
@@ -36,16 +35,6 @@ export async function POST(req: Request) {
                 message: "User not found"
             },{status: 404})
         }
-
-        //updating the jwt session
-        const { update } = useSession();
-
-        await fetch("/api/accept-messages", {
-        method: "POST",
-        body: JSON.stringify({ acceptingMessages }),
-        });
-
-        await update();
 
         return Response.json({
             success: true,

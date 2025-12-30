@@ -41,9 +41,9 @@ export async function GET(req: Request) {
 
         if(user.length === 0){
             return Response.json({
-                success: false,
-                message: "User has no messages"
-            },{status: 400})
+                success: true,
+                messages: []
+            },{status: 200})
         }
 
         return Response.json({
