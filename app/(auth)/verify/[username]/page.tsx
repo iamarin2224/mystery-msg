@@ -54,10 +54,14 @@ function page() {
         <div className="flex justify-center items-center min-h-screen bg-gray-100">
         <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md mx-6">
             <div className="text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
-                Verify Your Account
-            </h1>
-            <p className="mb-4">Enter the verification code sent to your email</p>
+                <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
+                    Verify Your Account
+                </h1>
+                <p className="mb-4">
+                    Enter the verification code sent to your email
+                    <br/>
+                    Please check spam folder if you didn't recieve the email
+                </p>
             </div>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
