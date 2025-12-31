@@ -3,8 +3,9 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/option";
 import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/models/users.models";
 import { User } from "next-auth";  
+import mongoose from "mongoose";
 
-export async function DELETE(req: Request, {params} : {params : {msgid: String}}) {
+export async function DELETE(req: Request, {params} : {params : {msgid: string}}) {
     const msgId = params.msgid
 
     await dbConnect() 
@@ -22,7 +23,7 @@ export async function DELETE(req: Request, {params} : {params : {msgid: String}}
     try {
         const updatedResult = await UserModel.updateOne(
             {_id: user._id},
-            {$pull: {messages: {_id: msgId}}} //pull method used to pull out one item of an array
+            {$pull: {messages: {_id: new mongoose.Types.ObjectId(msgId)}}} //pull method used to pull out one item of an array
         )
 
         if (updatedResult.modifiedCount === 0){
@@ -34,7 +35,7 @@ export async function DELETE(req: Request, {params} : {params : {msgid: String}}
 
         return Response.json({
             success: true,
-            messages: "Message deleted successfully"
+            message: "Message deleted successfully"
         },{status: 200})
 
     } catch (error) {
