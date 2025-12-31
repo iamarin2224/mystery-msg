@@ -5,8 +5,8 @@ import UserModel from "@/models/users.models";
 import { User } from "next-auth";  
 import mongoose from "mongoose";
 
-export async function DELETE(req: Request, {params} : {params : {msgid: string}}) {
-    const msgId = params.msgid
+export async function DELETE(req: Request, {params} : {params : Promise<{msgid: string}>}) {
+    const { msgid } = await params
 
     await dbConnect() 
 
@@ -23,7 +23,7 @@ export async function DELETE(req: Request, {params} : {params : {msgid: string}}
     try {
         const updatedResult = await UserModel.updateOne(
             {_id: user._id},
-            {$pull: {messages: {_id: new mongoose.Types.ObjectId(msgId)}}} //pull method used to pull out one item of an array
+            {$pull: {messages: {_id: msgid}}} //pull method used to pull out one item of an array
         )
 
         if (updatedResult.modifiedCount === 0){

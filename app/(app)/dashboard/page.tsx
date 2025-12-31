@@ -138,18 +138,21 @@ function page() {
       <h1 className="text-4xl font-bold mb-4">User Dashboard</h1>
 
       <div className="mb-4">
-        <h2 className="text-lg font-semibold mb-2">Copy Your Unique Link</h2>{' '}
-        <div className="flex items-center">
+        <h2 className="text-lg font-semibold mb-2">Copy Your Unique Link</h2>
+
+        <div className="flex flex-col gap-2 md:flex-row md:items-center">
           <input
             type="text"
             value={profileUrl}
             ref={urlRef}
             disabled
-            className="input input-bordered w-full p-2 mr-2"
+            className="w-full rounded-md border border-gray-300 p-2 text-sm break-all bg-gray-100"
           />
-          <Button onClick={copyToClipboard}>Copy</Button>
+
+          <Button onClick={copyToClipboard} className="w-full md:w-auto">Copy</Button>
         </div>
       </div>
+
 
       <div className="mb-4">
         <Switch
