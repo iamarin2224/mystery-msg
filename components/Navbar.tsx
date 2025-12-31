@@ -15,19 +15,19 @@ function Navbar() {
 
         {/* Desktop / Tablet */}
         <div className="hidden sm:flex items-center justify-between">
-          {/* Brand */}
+          
           <Link href="/" className="text-xl font-bold">
             Mystery Message
           </Link>
 
-          {/* Welcome */}
+          
           {session && (
             <span className="text-lg font-semibold text-gray-300">
               Welcome, {user?.username || user?.email}
             </span>
           )}
 
-          {/* Auth Button */}
+          
           {session ? (
             <Button
               onClick={() => signOut()}
@@ -50,7 +50,7 @@ function Navbar() {
 
         {/* Mobile */}
         <div className="flex flex-col gap-1 sm:hidden">
-          {/* Top row */}
+          
           <div className="flex items-center justify-between">
             <Link href="/" className="text-lg font-bold">
               Mystery Msg
@@ -76,7 +76,6 @@ function Navbar() {
             )}
           </div>
 
-          {/* Welcome text below */}
           {session && (
             <div className="text-sm text-gray-300">
               Welcome, {user?.username || user?.email}
