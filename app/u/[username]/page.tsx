@@ -181,7 +181,7 @@ export default function SendMessage() {
           <CardContent className="flex flex-col gap-3">
             {error ? (
               <p className="text-sm text-destructive">
-                {error.message}
+                Suggestions are temporarily unavailable. Please try again.
               </p>
             ) : (
               parseStringMessages(completion).map((message, index) => (
