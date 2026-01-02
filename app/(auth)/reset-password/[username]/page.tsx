@@ -61,7 +61,9 @@ function page() {
                     <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
                         Reset Your Password
                     </h1>
-                    <p className="mb-4">Sign in to start your mysterious messaging adventure</p>
+                    <p className="mb-4">
+                        Hey {params.username}, please enter a new password for your account
+                    </p>
                 </div>
 
                 <Form {...form}>
