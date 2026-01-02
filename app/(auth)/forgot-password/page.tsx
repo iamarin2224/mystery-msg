@@ -51,11 +51,11 @@ function page() {
             }, 2000)
 
         } catch (error) {
-            console.error("Error in sign-up of user: ", error)
+            console.error("Error in password reset of user: ", error)
 
             const axiosError = error as AxiosError<ApiResponse>
             let errorMsg = axiosError.response?.data.message
-            toast.error("Failed to sign-up user", {
+            toast.error("Failed to reset password of user", {
                 description: errorMsg
             })
         } finally {
