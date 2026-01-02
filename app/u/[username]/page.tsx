@@ -126,7 +126,7 @@ export default function SendMessage() {
                 Please wait
               </Button>
             ) : (
-              <Button type="submit" disabled={isLoading || !messageContent}>
+              <Button type="submit" disabled={isLoading || !messageContent} className='cursor-pointer'>
                 Send It
               </Button>
             )}
@@ -161,7 +161,7 @@ export default function SendMessage() {
                 type="button"
                 onClick={promptForm.handleSubmit(onSuggestionSubmit)}
                 disabled={isSuggestLoading}
-                className="shrink-0"
+                className="shrink-0 cursor-pointer"
               >
                 {isSuggestLoading ? 'Generating...' : 'Suggest Messages'}
               </Button>
@@ -189,7 +189,7 @@ export default function SendMessage() {
                   key={index}
                   variant="outline"
                   onClick={() => handleMessageClick(message)}
-                  className="justify-start text-left whitespace-normal h-auto"
+                  className="justify-start text-left whitespace-normal h-auto cursor-pointer"
                 >
                   {message}
                 </Button>
@@ -203,8 +203,8 @@ export default function SendMessage() {
 
       <div className="text-center">
         <div className="mb-4">Get Your Message Board</div>
-        <Link href={'/sign-up'}>
-          <Button>Create Your Account</Button>
+        <Link href={'/sign-up'} target='blank'>
+          <Button className='cursor-pointer'>Create Your Account</Button>
         </Link>
       </div>
       
