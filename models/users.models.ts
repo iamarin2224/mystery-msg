@@ -26,6 +26,8 @@ export interface User extends Document{
     password: string,
     verifyCode: string,
     verifyCodeExpiry: Date,
+    verifyCodeReset: boolean,
+    allowPassReset: boolean,
     isVerified: boolean,
     isAcceptingMsg: boolean,
     messages: Message[] //Stores the array of messagesd sent to the user
@@ -62,6 +64,14 @@ const UserSchema: Schema<User> = new Schema({
     verifyCodeExpiry: {
         type: Date,
         required: [true, "Verify Code Expiry required"],
+    },
+    verifyCodeReset: {
+        type: Boolean,
+        default: false
+    },
+    allowPassReset: {
+        type: Boolean,
+        default: false
     },
     isVerified: {
         type: Boolean,
