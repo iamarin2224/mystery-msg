@@ -5,7 +5,7 @@ interface VerificationEmailProps {
   otp: string;
 }
 
-const VerificationEmail = ({ username = "Sample", otp = "123456" }: VerificationEmailProps) => {
+const ForgotPassVerification = ({ username = "Sample", otp = "123456" }: VerificationEmailProps) => {
   const company = "Mystery Message"
   return (
     <Html>
@@ -35,22 +35,22 @@ const VerificationEmail = ({ username = "Sample", otp = "123456" }: Verification
               />
             </Section>
             <Heading className="text-2xl text-white font-normal text-center p-0 my-8 mx-0">
-              Welcome to <strong>{company}</strong>, {username}!
+              Reset your <strong>{company}</strong> password, {username}
             </Heading>
             <Text className="text-start text-sm text-white">
               Hello {username},
             </Text>
             <Text className="text-start text-sm text-white leading-relaxed">
-              Thank you for registering. We hope you enjoy your journey with us. Please use the following verification code to complete your registration:
+              We received a request to reset the password for your {company} account. Please use the verification code below to continue with resetting your password.
             </Text>
             <Text className="text-center text-2xl tracking-widest text-white leading-relaxed">{otp}</Text>
             <Text className="text-start text-sm text-white leading-relaxed">
-              Please note that the verification code will expire in 10 minutes.
+              Please note that the verification code will expire in 10 minutes. If you did not request a password reset, you can safely ignore this email.
             </Text>
             <Text className="text-start text-sm text-white">
               Cheers,
               <br />
-              The {company} Team
+              The {company} Team,
               <br/>
               Made with ❤️ by Arin
             </Text>
@@ -61,4 +61,4 @@ const VerificationEmail = ({ username = "Sample", otp = "123456" }: Verification
   );
 };
 
-export default VerificationEmail;
+export default ForgotPassVerification;
