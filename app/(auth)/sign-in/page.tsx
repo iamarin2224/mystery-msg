@@ -8,6 +8,7 @@ import { signInSchema } from "@/schemas/signInSchema"
 import Link from "next/link"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
+import { Eye, EyeOff } from "lucide-react";
 
 import { Button } from "@/components/ui/button"
 import {
@@ -23,6 +24,7 @@ import { signIn } from "next-auth/react"
 
 function page() {
     const [isSubmitting, setIsSubmitting] = useState(false)
+    const [showPassword, setShowPassword] = useState(false);
 
     const router = useRouter()
 
@@ -91,17 +93,36 @@ function page() {
                         />
 
                         <FormField
-                        control={form.control}
-                        name="password"
-                        render={({ field }) => (
-                            <FormItem>
+                            control={form.control}
+                            name="password"
+                            render={({ field }) => (
+                                <FormItem>
                                 <FormLabel>Password</FormLabel>
                                 <FormControl>
-                                    <Input type="password" placeholder="password" {...field} />
+                                    <div className="relative">
+                                    <Input
+                                        type={showPassword ? "text" : "password"}
+                                        placeholder="password"
+                                        {...field}
+                                        className="pr-10"
+                                    />
+
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowPassword((prev) => !prev)}
+                                        className="absolute inset-y-0 right-3 flex items-center text-muted-foreground hover:text-foreground"
+                                    >
+                                        {showPassword ? (
+                                        <EyeOff className="h-4 w-4" />
+                                        ) : (
+                                        <Eye className="h-4 w-4" />
+                                        )}
+                                    </button>
+                                    </div>
                                 </FormControl>
                                 <FormMessage />
-                            </FormItem>
-                        )}
+                                </FormItem>
+                            )}
                         />
 
                         <Button type="submit" disabled={isSubmitting} >

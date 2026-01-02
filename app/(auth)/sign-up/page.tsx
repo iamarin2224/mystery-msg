@@ -14,16 +14,16 @@ import { ApiResponse } from "@/types/ApiResponse"
 
 import { Button } from "@/components/ui/button"
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
+    Form,
+    FormControl,
+    FormDescription,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Loader2 } from "lucide-react"
+import { Loader2, Eye, EyeOff } from "lucide-react"
 
 function page() {
 
@@ -31,6 +31,7 @@ function page() {
     const [usernameMsg, setUsernameMsg] = useState('')
     const [isCheckingUsername, setIsCheckingUsername] = useState(false)
     const [isSubmitting, setIsSubmitting] = useState(false)
+    const [showPassword, setShowPassword] = useState(false);
 
     const debounced = useDebounceCallback(setUsername, 300)
 
@@ -166,17 +167,36 @@ function page() {
                         />
 
                         <FormField
-                        control={form.control}
-                        name="password"
-                        render={({ field }) => (
-                            <FormItem>
+                            control={form.control}
+                            name="password"
+                            render={({ field }) => (
+                                <FormItem>
                                 <FormLabel>Password</FormLabel>
                                 <FormControl>
-                                    <Input type="password" placeholder="password" {...field} />
+                                    <div className="relative">
+                                    <Input
+                                        type={showPassword ? "text" : "password"}
+                                        placeholder="password"
+                                        {...field}
+                                        className="pr-10"
+                                    />
+
+                                    <button
+                                        type="button"
+                                        onClick={() => setShowPassword((prev) => !prev)}
+                                        className="absolute inset-y-0 right-3 flex items-center text-muted-foreground hover:text-foreground"
+                                    >
+                                        {showPassword ? (
+                                        <EyeOff className="h-4 w-4" />
+                                        ) : (
+                                        <Eye className="h-4 w-4" />
+                                        )}
+                                    </button>
+                                    </div>
                                 </FormControl>
                                 <FormMessage />
-                            </FormItem>
-                        )}
+                                </FormItem>
+                            )}
                         />
 
                         <Button type="submit" disabled={isSubmitting} >
