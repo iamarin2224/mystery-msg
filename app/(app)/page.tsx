@@ -52,10 +52,6 @@ export default function Home() {
           <CarouselNext /> */}
         </Carousel>
       </main>
-
-      <footer className="text-center p-4 md:p-6 bg-gray-900 text-white">
-        © 2023 Mystery Message. All rights reserved.
-      </footer>
     </>
   );
 }
