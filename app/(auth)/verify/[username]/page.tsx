@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { verifySchema } from "@/schemas/verifySchema"
 import { toast } from "sonner"
-import { useParams, useRouter } from "next/navigation"
+import { useParams, useRouter, useSearchParams } from "next/navigation"
 import axios, {AxiosError} from 'axios'
 import { ApiResponse } from "@/types/ApiResponse"
 
@@ -29,6 +29,9 @@ function page() {
         resolver: zodResolver(verifySchema)
     })
 
+    const searchParams = useSearchParams();
+    const mode = searchParams.get("mode"); 
+
     const onSubmit = async (data: z.infer<typeof verifySchema>) => {
         try {
             const response = await axios.post<ApiResponse>('/api/verify', {
@@ -38,9 +41,16 @@ function page() {
             
             toast.success(response.data.message)
 
-            setTimeout(() => {
-                router.replace(`/sign-in`)
-            }, 2000)
+            if (mode === "reset"){
+                setTimeout(() => {
+                    router.replace(`/reset-password/${params.username}`)
+                }, 2000)
+            }
+            else{
+                setTimeout(() => {
+                    router.replace(`/sign-in`)
+                }, 2000)
+            }
 
         } catch (error) {
             console.error("Error in verification of user: ", error)

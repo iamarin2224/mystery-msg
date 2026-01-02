@@ -65,7 +65,8 @@ export async function POST(request:Request) {
         
         return Response.json({
             success: true,
-            message: emailResponse.message
+            message: emailResponse.message,
+            username
         },{status: 201})
 
     } catch (error) {
