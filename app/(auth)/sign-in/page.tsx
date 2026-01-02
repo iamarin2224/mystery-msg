@@ -125,22 +125,22 @@ function page() {
                             )}
                         />
 
-                        <Button type="submit" disabled={isSubmitting} >
+                        <Button type="submit" className="w-full cursor-pointer" disabled={isSubmitting} >
                             Sign In
                         </Button>
                         
                     </form>
                 </Form>
 
-                <div className="text-center mt-4">
+                <div className="text-center">
                     <p>
-                        <Link href="/sign-up" className="text-blue-600 hover:text-blue-800">
+                        <Link href="/forgot-password" className="text-blue-600 hover:text-blue-800">
                         Forgot Password?
                         </Link>
                     </p>
                 </div>
                 
-                <div className="text-center mt-4">
+                <div className="text-center">
                     <p>
                         Not registered yet?{' '}
                         <Link href="/sign-up" className="text-blue-600 hover:text-blue-800">

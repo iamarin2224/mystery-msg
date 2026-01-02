@@ -91,21 +91,13 @@ function page() {
                         )}
                         />
 
-                        <Button type="submit" disabled={isSubmitting} >
+                        <Button type="submit" className="w-full cursor-pointer" disabled={isSubmitting} >
                             Send Code
                         </Button>
                         
                     </form>
                 </Form>
                 
-                <div className="text-center mt-4">
-                    <p>
-                        Not registered yet?{' '}
-                        <Link href="/sign-up" className="text-blue-600 hover:text-blue-800">
-                        Sign Up
-                        </Link>
-                    </p>
-                </div>
             </div>
         </div>
     )

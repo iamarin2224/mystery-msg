@@ -30,7 +30,10 @@ function page() {
     const [showPassword, setShowPassword] = useState(false);
 
     const form = useForm<z.infer<typeof resetPassSchema>>({
-        resolver: zodResolver(resetPassSchema)
+        resolver: zodResolver(resetPassSchema),
+        defaultValues: {
+            newPassword: ""
+        }
     })
 
     const onSubmit = async (data: z.infer<typeof resetPassSchema>) => {
