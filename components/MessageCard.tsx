@@ -51,7 +51,7 @@ function MessageCard({message, onMessageDelete}: MessageCardProps) {
   return (
     <Card>
         <CardHeader>
-            <div className="flex justify-between items-center" >
+            <div className="flex gap-2 justify-between items-center" >
             <CardTitle>{message.content}</CardTitle>
             <AlertDialog>
               <AlertDialogTrigger asChild>
