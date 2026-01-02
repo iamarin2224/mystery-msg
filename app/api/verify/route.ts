@@ -24,13 +24,13 @@ export async function POST(request:Request) {
             await user.save()
             return Response.json({
                 success: true,
-                message: "User verified successfully"
+                message: "Code verified successfully"
             },{status: 200})
         }
         else if (isCodeExpired){
             return Response.json({
                 success: false,
-                message: "Verification code expired, please signup again"
+                message: "Verification code expired, please try again"
             },{status: 500})
         }
         else {
