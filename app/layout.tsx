@@ -31,6 +31,9 @@ export default function RootLayout({
           <Toaster richColors />
           {children}
         </body>
+        <footer className="text-center p-4 md:p-6 bg-gray-900 text-white">
+          © 2023 Mystery Message. All rights reserved. Made with ❤️ by Arin
+        </footer>
       </AuthProvider>
     </html>
   );
