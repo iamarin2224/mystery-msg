@@ -8,6 +8,12 @@ export async function proxy(request: NextRequest) {
     const token = await getToken({req: request})
     const url = request.nextUrl
 
+    const canResetPassword = request.cookies.get("canResetPassword")?.value === "true"
+
+    if (url.pathname.startsWith("/reset-password") && !canResetPassword) {
+        return NextResponse.redirect(new URL("/", request.url))
+    }
+
     //redirect to dashboard if user is verified and trying to sign-in or sign-up
     if (token && (
         url.pathname == '/' ||
@@ -32,6 +38,7 @@ export const config = {
         '/sign-in',
         '/sign-up',
         '/dashboard/:path*',
-        '/verify/:path*'
+        '/verify/:path*',
+        '/reset-password/:path*'
     ]
 }

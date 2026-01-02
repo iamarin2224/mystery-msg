@@ -42,12 +42,14 @@ function page() {
             
             toast.success(response.data.message)
 
+            document.cookie ="canResetPassword=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
             setTimeout(() => {
                 router.replace(`/sign-in`)
             }, 2000)
             
         } catch (error) {
-            console.error("Error in verification of user: ", error)
+            console.error("Error in reset password of user: ", error)
 
             const axiosError = error as AxiosError<ApiResponse>
             toast.error(axiosError.response?.data.message)

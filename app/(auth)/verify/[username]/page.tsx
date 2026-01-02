@@ -42,6 +42,7 @@ function page() {
             toast.success(response.data.message)
 
             if (mode === "reset"){
+                document.cookie = "canResetPassword=true; max-age=900; path=/";
                 setTimeout(() => {
                     router.replace(`/reset-password/${params.username}`)
                 }, 2000)
