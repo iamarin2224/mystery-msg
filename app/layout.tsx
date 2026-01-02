@@ -30,10 +30,11 @@ export default function RootLayout({
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <Toaster richColors />
           {children}
+          <footer className="flex sm:flex-row flex-col justify-center items-center gap-3 text-center p-4 md:p-6 bg-gray-900 text-white">
+            <p>© 2026 Mystery Message.</p>
+            <p>Made with ❤️ by Arin.</p>
+          </footer>
         </body>
-        <footer className="text-center p-4 md:p-6 bg-gray-900 text-white">
-          © 2023 Mystery Message. All rights reserved. Made with ❤️ by Arin
-        </footer>
       </AuthProvider>
     </html>
   );
