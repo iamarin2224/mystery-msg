@@ -12,20 +12,11 @@ export async function sendVerificationEmail(
     forgotPass: boolean = false
 ): Promise<ApiResponse>{
     try {
-        if (forgotPass){
-            await resend.emails.send({
-            from: 'onboarding@resend.dev',
-            to: email,
-            subject: 'Mystery Message Verfication Code',
-            react: ForgotPassVerification({username, otp}),
-            });
-            return {success: true, message: "Verification email send succesfully."}
-        }
         await resend.emails.send({
-        from: 'onboarding@resend.dev',
+        from: 'Mystery Message <no-reply@mysterymsg.online>',
         to: email,
         subject: 'Mystery Message Verfication Code',
-        react: VerificationEmail({username, otp}),
+        react: forgotPass? ForgotPassVerification({username, otp}) : VerificationEmail({username, otp}),
         });
         return {success: true, message: "Verification email send succesfully."}
     } catch (error) {

@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/carousel"
 import Autoplay from 'embla-carousel-autoplay'
 import messages from "@/data/messages.json"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -20,7 +22,15 @@ export default function Home() {
           <h1 className="text-3xl md:text-5xl font-bold">
             Dive into the World of Mysterious and Annonymous Messages
           </h1>
-          <p className="mt-3 md:mt-4 text-base md:text-lg">
+          <Link href="/sign-up">
+            <Button
+              variant="outline"
+              className="h-8 p-5 my-8 md:my-12 text-lg bg-slate-100 text-black"
+            >
+              Create Your Account
+            </Button>
+          </Link>
+          <p className="text-base md:text-lg">
             Mystery Message - Where your identity remains a secret.
           </p>
         </section>
