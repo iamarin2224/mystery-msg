@@ -57,7 +57,7 @@ Deploy easily to Vercel (recommended for Next.js apps).
 - **Sign Up/Sign In**: Create an account or log in via the homepage.
 - **Verification**: Check your email for OTP codes during registration or password reset.
 - **Dashboard**: View and manage received messages
-- **Shareable Anonymous Inbox:**: Users get a unique public link from their dashboard where anyone can anonymously submit messages via a public form, which are then privately accessible to the user.
+- **Shareable Anonymous Inbox**: Users get a unique public link from their dashboard where anyone can anonymously submit messages via a public form, which are then privately accessible to the user.
 - **AI Features**: Use integrated AI to generate mystery message ideas or enhancements.
 
 ## Contributing
