@@ -41,7 +41,7 @@ Key features:
 1. Clone the repository: `git clone https://github.com/iamarin2224/mystery-msg.git`
 2. Install dependencies: `npm install`
 3. Set up environment variables: Create a `.env.local` file in the root directory and add the following (replace with your values):
-- MONGODB_URI=mongodb://localhost:27017/mystery-msg
+- MONGODB_URI=your-mongodb-uri
 - NEXTAUTH_SECRET=your-secret-key
 - NEXTAUTH_URL=http://localhost:3000
 - RESEND_API_KEY=your-resend-key
