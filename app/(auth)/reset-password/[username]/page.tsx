@@ -47,9 +47,7 @@ function page() {
 
             document.cookie ="canResetPassword=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
-            setTimeout(() => {
-                router.replace(`/sign-in`)
-            }, 2000)
+            router.replace(`/sign-in`)
             
         } catch (error) {
             console.error("Error in reset password of user: ", error)

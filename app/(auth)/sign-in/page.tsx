@@ -56,9 +56,7 @@ function page() {
         if (result?.url){
             toast.success("Sign In successful")
 
-            setTimeout(() => {
-                router.replace(`/dashboard`)
-            }, 2000)
+            router.replace(`/dashboard`)
         }
 
         setIsSubmitting(false)

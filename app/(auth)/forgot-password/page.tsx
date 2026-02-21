@@ -46,10 +46,8 @@ function page() {
                 description: "Check your email to reset your password"
             })
 
-            setTimeout(() => {
-                router.replace(`/verify/${response.data.username}/?mode=reset`)
-            }, 2000)
-
+            router.replace(`/verify/${response.data.username}/?mode=reset`)
+            
         } catch (error) {
             console.error("Error in password reset of user: ", error)
 

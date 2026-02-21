@@ -46,14 +46,10 @@ function page() {
 
             if (mode === "reset"){
                 document.cookie = "canResetPassword=true; max-age=900; path=/";
-                setTimeout(() => {
-                    router.replace(`/reset-password/${params.username}`)
-                }, 2000)
+                router.replace(`/reset-password/${params.username}`)
             }
             else{
-                setTimeout(() => {
-                    router.replace(`/sign-in`)
-                }, 2000)
+                router.replace(`/sign-in`)
             }
 
         } catch (error) {
